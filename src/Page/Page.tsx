@@ -4,6 +4,7 @@ import styles from "./Page.module.css";
 
 export const Page = () => {
   const [widgetsAmount, setWidgetsAmount] = useState(5);
+  const [color, setColor] = useState("#ff0000");
 
   return (
     <div className={styles.wrapper}>
@@ -16,6 +17,15 @@ export const Page = () => {
           type="range"
           value={widgetsAmount}
           onChange={(e) => setWidgetsAmount(Number(e.target.value))}
+        />
+      </div>
+
+      <div className={styles.configuration}>
+        <label htmlFor="input">Theme color: </label>
+        <input
+          type="color"
+          value={color}
+          onChange={(e) => setColor(e.target.value)}
         />
       </div>
 
