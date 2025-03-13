@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 
 import styles from "./Page.module.css";
 
+const WIDGETS_AMOUNT = 7;
 export const Page = () => {
-  const [widgetsAmount, setWidgetsAmount] = useState(5);
   const [color, setColor] = useState("#000000");
 
   useEffect(() => {
@@ -37,19 +37,7 @@ export const Page = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.configuration}>
-        <label htmlFor="input">Amount of widgets: </label>
-        <input
-          min="0"
-          max="10"
-          id="input"
-          type="range"
-          value={widgetsAmount}
-          onChange={(e) => setWidgetsAmount(Number(e.target.value))}
-        />
-      </div>
-
-      <div className={styles.configuration}>
-        <label htmlFor="input">Theme color: </label>
+        <label htmlFor="input">Theme color: {color}</label>
         <input
           type="color"
           value={color}
@@ -57,15 +45,13 @@ export const Page = () => {
         />
       </div>
 
-      {widgetsAmount > 0 && (
-        <div className={styles.widgets}>
-          {[...Array(widgetsAmount)].map((_, index) => (
-            <div key={index} className={styles.widget}>
-              Widget {index + 1}
-            </div>
-          ))}
-        </div>
-      )}
+      <div className={styles.widgets}>
+        {[...Array(WIDGETS_AMOUNT)].map((_, index) => (
+          <div key={index} className={styles.widget}>
+            Widget {index + 1}
+          </div>
+        ))}
+      </div>
 
       <div className={styles.footer}>
         <h3>Footer</h3>
@@ -100,33 +86,7 @@ export const Page = () => {
           adipisci illo iste delectus iusto, sint, ex architecto nulla nihil?
           Sed distinctio ut possimus sit dolores sapiente soluta voluptatem
           obcaecati, magni aut nulla praesentium eligendi quidem tempore at cum,
-          nam facere delectus unde! Vel quidem animi, repudiandae explicabo eos
-          ipsa qui natus accusamus saepe laborum commodi quia nesciunt culpa
-          iure dolor et assumenda tempore nemo quo? Consequatur eveniet nihil
-          inventore, a officiis ratione dolores expedita deleniti optio adipisci
-          eligendi error quibusdam voluptates. Commodi delectus iure voluptate
-          consectetur est harum? Sit vero quas nulla reprehenderit cupiditate
-          repudiandae dolorum. Enim aperiam harum architecto ipsa reiciendis,
-          quas corrupti molestias nostrum nobis voluptatibus, eveniet, provident
-          sequi voluptate! Veritatis incidunt dignissimos commodi quidem
-          delectus accusamus odio modi temporibus beatae nesciunt voluptate
-          autem tenetur, fuga quas maxime neque doloribus suscipit. Veniam nisi
-          commodi, ad, necessitatibus repellat eligendi asperiores atque quasi
-          consectetur culpa voluptatem fuga voluptates laudantium perspiciatis
-          nam laborum, repellendus beatae unde recusandae delectus soluta!
-          Facilis vero libero porro nobis suscipit nemo laboriosam fuga,
-          voluptatibus cum neque corporis, magni repellat tempore laborum, quia
-          alias eos et dolor ipsam a dolore eum reiciendis. Velit aliquid
-          facilis, molestias accusantium aperiam odio soluta quaerat minus dicta
-          alias quis ratione. Quae quam tempore dignissimos facilis. Corrupti,
-          odio, inventore quo accusantium ducimus voluptates quidem laboriosam
-          velit quae vel alias quasi omnis, enim voluptatibus exercitationem
-          eaque libero illo eius aspernatur delectus. Facilis repudiandae atque
-          excepturi error unde, aliquid blanditiis similique aperiam tempora
-          eius explicabo minima inventore veritatis voluptatum molestias aliquam
-          quibusdam, voluptates nulla nemo dicta. Velit nihil consequatur
-          voluptatem sapiente consequuntur incidunt nostrum minima provident
-          quisquam, accusamus alias sequi accusantium eum totam temporibus.
+          nam facere delectus unde!
         </div>
       </div>
     </div>
