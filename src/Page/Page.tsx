@@ -8,11 +8,12 @@ export const Page = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.configuration}>
-        <label htmlFor="input">Amount of widgets</label>
+        <label htmlFor="input">Amount of widgets: </label>
         <input
           min="0"
+          max="10"
           id="input"
-          type="number"
+          type="range"
           value={widgetsAmount}
           onChange={(e) => setWidgetsAmount(Number(e.target.value))}
         />
