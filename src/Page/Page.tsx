@@ -4,7 +4,7 @@ import styles from "./Page.module.css";
 
 export const Page = () => {
   const [widgetsAmount, setWidgetsAmount] = useState(5);
-  const [color, setColor] = useState("#ffffff");
+  const [color, setColor] = useState("#000000");
 
   useEffect(() => {
     const updateThemeColor = () => {
