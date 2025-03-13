@@ -7,4 +7,9 @@
 :root {
   --navbar-background-color: #2d2d2d;
   --navbar-text-color: #fff;
+  --background-color: #f0f0f0;
+}
+
+body {
+  background-color: var(--background-color);
 }
