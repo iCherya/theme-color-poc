@@ -5,21 +5,28 @@ import styles from "./Page.module.css";
 const WIDGETS_AMOUNT = 7;
 export const Page = () => {
   const [color, setColor] = useState("#000000");
+  const [useNavbarColor, setUseNavbarColor] = useState(false);
 
   useEffect(() => {
     const updateThemeColor = () => {
       console.log("updateThemeColor");
+
+      const navbarColor = getComputedStyle(document.documentElement)
+        .getPropertyValue("--navbar-background-color")
+        .trim();
       const themeColorMeta = document.querySelector('meta[name="theme-color"]');
       const appleStatusBarMeta = document.querySelector(
         'meta[name="apple-mobile-web-app-status-bar-style"]'
       );
 
+      const resultColor = useNavbarColor ? navbarColor : color;
+
       if (themeColorMeta) {
-        themeColorMeta.setAttribute("content", color);
+        themeColorMeta.setAttribute("content", resultColor);
       }
 
       if (appleStatusBarMeta) {
-        appleStatusBarMeta.setAttribute("content", color);
+        appleStatusBarMeta.setAttribute("content", resultColor);
       }
     };
 
@@ -32,16 +39,34 @@ export const Page = () => {
     });
 
     return () => observer.disconnect();
-  }, [color]);
+  }, [color, useNavbarColor]);
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.configuration}>
-        <label htmlFor="input">Theme color: {color}</label>
+        <label htmlFor="color">
+          Theme color: <b>{color}</b>
+        </label>
         <input
+          id="color"
           type="color"
           value={color}
-          onChange={(e) => setColor(e.target.value)}
+          onChange={(e) => {
+            setColor(e.target.value);
+            setUseNavbarColor(false);
+          }}
+        />
+      </div>
+
+      <div className={styles.configuration}>
+        <label htmlFor="useNavbarColor">
+          Use Navbar color: <b>{String(useNavbarColor)}</b>
+        </label>
+        <input
+          id="useNavbarColor"
+          type="checkbox"
+          checked={useNavbarColor}
+          onChange={(e) => setUseNavbarColor(e.target.checked)}
         />
       </div>
 
