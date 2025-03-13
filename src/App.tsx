@@ -1,17 +1,11 @@
-import { useState } from "react";
+import { Page } from "./Page/Page";
+import { Navbar } from "./Navbar/Navbar";
 
-const App = () => {
-  const [count, setCount] = useState(0);
-
-  return (
-    <>
-      <h1>Hello, world!</h1>
-      <p>Welcome to your new single-spa application.</p>
-      <button onClick={() => setCount((count) => count + 1)}>
-        count is {count}
-      </button>
-    </>
-  );
-};
+const App = () => (
+  <>
+    <Navbar />
+    <Page />
+  </>
+);
 
 export default App;

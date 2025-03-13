@@ -1,0 +1,28 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 8px;
+}
+
+.configuration {
+  border: 1px solid #ccc;
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+}
+
+.widgets {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.widget {
+  width: 100%;
+  height: 40px;
+  border: 1px dashed #ccc;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+}

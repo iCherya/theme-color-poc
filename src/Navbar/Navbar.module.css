@@ -1,0 +1,32 @@
+.wrapper {
+  background-color: var(--navbar-background-color);
+  color: var(--navbar-text-color);
+  height: 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  width: 100dvw;
+}
+
+.buttons {
+  display: flex;
+  gap: 16px;
+
+  button {
+    background-color: transparent;
+    color: var(--navbar-text-color);
+    border: 1px dashed var(--navbar-text-color);
+    cursor: pointer;
+    padding: 0.5em;
+    border-radius: 8px;
+
+    &:last-of-type {
+      border-color: orange;
+      color: orange;
+    }
+  }
+}
