@@ -1,10 +1,38 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import styles from "./Page.module.css";
 
 export const Page = () => {
   const [widgetsAmount, setWidgetsAmount] = useState(5);
-  const [color, setColor] = useState("#ff0000");
+  const [color, setColor] = useState("#ffffff");
+
+  useEffect(() => {
+    const updateThemeColor = () => {
+      console.log("updateThemeColor");
+      const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+      const appleStatusBarMeta = document.querySelector(
+        'meta[name="apple-mobile-web-app-status-bar-style"]'
+      );
+
+      if (themeColorMeta) {
+        themeColorMeta.setAttribute("content", color);
+      }
+
+      if (appleStatusBarMeta) {
+        appleStatusBarMeta.setAttribute("content", color);
+      }
+    };
+
+    updateThemeColor();
+
+    const observer = new MutationObserver(updateThemeColor);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["style"],
+    });
+
+    return () => observer.disconnect();
+  }, [color]);
 
   return (
     <div className={styles.wrapper}>

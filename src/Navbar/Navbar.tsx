@@ -1,9 +1,9 @@
 import styles from "./Navbar.module.css";
 
-import { useThemeColor } from "../useThemeColor";
+// import { useThemeColor } from "../useThemeColor";
 
 export const Navbar = () => {
-  useThemeColor("--navbar-background-color");
+  //   useThemeColor("--navbar-background-color");
 
   return (
     <div className={styles.wrapper}>
